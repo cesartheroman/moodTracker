@@ -1,8 +1,10 @@
 import React, { useCallback, useState } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+
+import { MoodOptionType, MoodOptionWithTimestamp } from '../types';
 
 import MoodPicker from '../components/MoodPicker';
-import { MoodOptionType, MoodOptionWithTimestamp } from '../types';
+import MoodItemRow from '../components/MoodItemRow';
 
 const Home: React.FC = () => {
   const [moodList, setMoodList] = useState<MoodOptionWithTimestamp[]>([]);
@@ -18,9 +20,7 @@ const Home: React.FC = () => {
     <View style={styles.container}>
       <MoodPicker handleSelectMood={handleSelectMood} />
       {moodList.map(item => (
-        <Text key={item.timestamp}>
-          {item.mood.emoji} {new Date(item.timestamp).toString()}
-        </Text>
+        <MoodItemRow item={item} key={item.timestamp} />
       ))}
     </View>
   );
