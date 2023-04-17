@@ -1,16 +1,35 @@
-import React, { createContext, useContext, PropsWithChildren } from 'react';
+import React, {
+  useState,
+  useCallback,
+  createContext,
+  useContext,
+  PropsWithChildren,
+} from 'react';
+
+import { MoodOptionType, MoodOptionWithTimestamp } from './types';
 
 type AppContextType = {
-  greeting: string;
+  moodList: MoodOptionWithTimestamp[];
+  handleSelectMood: (mood: MoodOptionType) => void;
 };
 
 const AppContext = createContext<AppContextType>({
-  greeting: 'Hello',
+  moodList: [],
+  handleSelectMood: () => {},
 });
 
 export const AppProvider: React.FC<PropsWithChildren> = ({ children }) => {
+  const [moodList, setMoodList] = useState<MoodOptionWithTimestamp[]>([]);
+
+  const handleSelectMood = useCallback((mood: MoodOptionType) => {
+    setMoodList(prevMoodList => [
+      ...prevMoodList,
+      { mood, timestamp: Date.now() },
+    ]);
+  }, []);
+
   return (
-    <AppContext.Provider value={{ greeting: 'Hello' }}>
+    <AppContext.Provider value={{ moodList, handleSelectMood }}>
       {children}
     </AppContext.Provider>
   );

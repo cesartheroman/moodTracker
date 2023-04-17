@@ -30,8 +30,8 @@ const MoodPicker: React.FC<MoodPickerProps> = ({ handleSelectMood }) => {
     <View style={styles.container}>
       <Text style={styles.heading}>How are you right now?</Text>
       <View style={styles.moodList}>
-        {moodOptions.map(option => (
-          <View>
+        {moodOptions.map((option, idx) => (
+          <View key={idx}>
             <Pressable
               onPress={() => setSelectedMood(option)}
               style={[
