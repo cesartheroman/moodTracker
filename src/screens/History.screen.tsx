@@ -1,10 +1,14 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
+import { useAppContext } from '../App.provider';
+
 const History: React.FC = () => {
+  const appContext = useAppContext();
+
   return (
     <View>
-      <Text>History</Text>
+      <Text>{appContext.greeting}</Text>
     </View>
   );
 };
