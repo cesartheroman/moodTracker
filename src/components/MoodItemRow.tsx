@@ -45,10 +45,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: Theme.colorPurple,
     fontWeight: 'bold',
+    fontFamily: Theme.fontFamilyRegular,
   },
   moodDate: {
     textAlign: 'center',
     color: Theme.colorLavender,
+    fontFamily: Theme.fontFamilyRegular,
   },
 });
 
