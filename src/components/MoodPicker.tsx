@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: 'space-between',
     height: 230,
+    backgroundColor: 'rgba(0,0,0,0.2)',
   },
   heading: {
     fontSize: 20,
@@ -88,6 +89,8 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     textAlign: 'center',
     marginBottom: 20,
+    color: Theme.colorWhite,
+    fontFamily: Theme.fontFamilyRegular,
   },
   moodList: {
     flexDirection: 'row',
@@ -114,6 +117,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     fontSize: 10,
+    fontFamily: Theme.fontFamilyRegular,
   },
   button: {
     backgroundColor: Theme.colorPurple,
@@ -127,6 +131,7 @@ const styles = StyleSheet.create({
     color: Theme.colorWhite,
     textAlign: 'center',
     fontWeight: 'bold',
+    fontFamily: Theme.fontFamilyRegular,
   },
   image: {
     alignSelf: 'center',
