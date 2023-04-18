@@ -25,6 +25,11 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
   },
+  square: {
+    width: 100,
+    height: 100,
+    backgroundColor: 'lightgreen',
+  },
 });
 
 export default Home;
