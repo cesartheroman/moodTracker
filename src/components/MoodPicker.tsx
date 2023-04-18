@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 20,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     letterSpacing: 1,
     textAlign: 'center',
     marginBottom: 20,
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: Theme.colorWhite,
     textAlign: 'center',
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     fontFamily: Theme.fontFamilyRegular,
   },
   image: {

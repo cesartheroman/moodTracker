@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   moodDescription: {
     fontSize: 18,
     color: Theme.colorPurple,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     fontFamily: Theme.fontFamilyRegular,
   },
   moodDate: {
