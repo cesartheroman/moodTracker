@@ -1,10 +1,14 @@
 import React, { useState, useCallback } from 'react';
 import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
+import Reanimated, {
+  useAnimatedStyle,
+  withTiming,
+} from 'react-native-reanimated';
 
 import { MoodOptionType } from '../types';
 import Theme from '../theme';
 
-const imageSrc = require('../assets/butterflies.png');
+const ReanimatedPressable = Reanimated.createAnimatedComponent(Pressable);
 
 const moodOptions: MoodOptionType[] = [
   { emoji: '🧑‍💻', description: 'studious' },
@@ -18,9 +22,19 @@ type MoodPickerProps = {
   handleSelectMood: (mood: MoodOptionType) => void;
 };
 
+const imageSrc = require('../assets/butterflies.png');
+
 const MoodPicker: React.FC<MoodPickerProps> = ({ handleSelectMood }) => {
   const [selectedMood, setSelectedMood] = useState<MoodOptionType>();
   const [hasSelectedMood, setHasSelectedMood] = useState(false);
+
+  const buttonStyle = useAnimatedStyle(
+    () => ({
+      opacity: selectedMood ? withTiming(1) : withTiming(0.5),
+      transform: [{ scale: selectedMood ? withTiming(1) : withTiming(0.8) }],
+    }),
+    [selectedMood],
+  );
 
   const handleSelect = useCallback(() => {
     if (selectedMood) {
@@ -66,26 +80,28 @@ const MoodPicker: React.FC<MoodPickerProps> = ({ handleSelectMood }) => {
           </View>
         ))}
       </View>
-      <Pressable style={styles.button} onPress={handleSelect}>
+      <ReanimatedPressable
+        style={[styles.button, buttonStyle]}
+        onPress={handleSelect}>
         <Text style={styles.buttonText}>Choose</Text>
-      </Pressable>
+      </ReanimatedPressable>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    height: 250,
     borderWidth: 2,
+    borderColor: Theme.colorPurple,
     margin: 10,
     borderRadius: 10,
     padding: 20,
     justifyContent: 'space-between',
-    height: 230,
     backgroundColor: 'rgba(0,0,0,0.2)',
   },
   heading: {
     fontSize: 20,
-    // fontWeight: 'bold',
     letterSpacing: 1,
     textAlign: 'center',
     marginBottom: 20,
@@ -130,7 +146,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: Theme.colorWhite,
     textAlign: 'center',
-    // fontWeight: 'bold',
     fontFamily: Theme.fontFamilyRegular,
   },
   image: {
