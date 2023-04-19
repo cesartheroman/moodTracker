@@ -1,4 +1,22 @@
 {
   "name": "MoodTracker",
-  "displayName": "MoodTracker"
+  "expo": {
+    "name": "MoodTracker",
+    "slug": "MoodTracker",
+    "ios": {
+      "bundleIdentifier": "com.MoodTracker"
+    },
+    "android": {
+      "package": "com.MoodTracker"
+    },
+    "runtimeVersion": "exposdk:47.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/9121acf5-42d1-4b3f-b388-928031956ba6"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9121acf5-42d1-4b3f-b388-928031956ba6"
+      }
+    }
+  }
 }
